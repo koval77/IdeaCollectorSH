@@ -1,0 +1,98 @@
+﻿@model IdeaCollectorSH.Models.Idea
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Idea</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdeaTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdeaTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubmitDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubmitDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TDown)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TDown)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpiryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpiryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViewCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViewCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdeaDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdeaDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdeaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
