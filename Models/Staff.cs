@@ -11,6 +11,7 @@ namespace IdeaCollectorSH.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Staff
     {
@@ -22,12 +23,16 @@ namespace IdeaCollectorSH.Models
         }
     
         public int StaffID { get; set; }
-        public Nullable<int> DepartmentID { get; set; }
+        public int DepartmentID { get; set; }
+        [StringLength(50)]
         public string FirstName { get; set; }
+        [StringLength(50)]
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        [Range(3,4)]
         public Nullable<int> PhoneNumber { get; set; }
+        public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -112,12 +112,13 @@
             <PropertyRef Name="StaffID" />
           </Key>
           <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DepartmentID" Type="int" />
-          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Password" Type="nchar" MaxLength="10" />
+          <Property Name="DepartmentID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="PhoneNumber" Type="int" />
+          <Property Name="Address" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK_Comment_ToTable">
           <End Role="Idea" Type="Self.Idea" Multiplicity="0..1" />
@@ -224,7 +225,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staff_ToTable">
-          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Department">
@@ -284,8 +285,7 @@
             <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -401,15 +401,16 @@
             <PropertyRef Name="StaffID" />
           </Key>
           <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DepartmentID" Type="Int32" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="PhoneNumber" Type="Int32" />
           <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_ToTable_1" FromRole="Staff" ToRole="Comment" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Staff_ToTable" FromRole="Staff" ToRole="Department" />
           <NavigationProperty Name="Ideas" Relationship="Self.FK_Idea_ToTable" FromRole="Staff" ToRole="Idea" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -464,7 +465,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staff_ToTable">
-          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Department">
@@ -656,6 +657,7 @@
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="Model.Staff">
               <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="StaffID" ColumnName="StaffID" />
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

@@ -19,6 +19,34 @@
         </dd>
 
     </dl>
+    <table class="table">
+        <tr>
+            <th>
+                Id number
+            </th>
+            <th>
+                First name
+            </th>
+            <th>
+                Last name
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Staffs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StaffID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+            </tr>
+        }
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.DepartmentID }) |

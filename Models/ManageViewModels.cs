@@ -9,6 +9,7 @@ namespace IdeaCollectorSH.Models
     {
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
+        [Phone]
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }

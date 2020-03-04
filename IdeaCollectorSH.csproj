@@ -306,11 +306,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Moj.cshtml" />
-    <Content Include="Views\Staffs\Create.cshtml" />
-    <Content Include="Views\Staffs\Delete.cshtml" />
-    <Content Include="Views\Staffs\Details.cshtml" />
-    <Content Include="Views\Staffs\Edit.cshtml" />
-    <Content Include="Views\Staffs\Index.cshtml" />
     <Content Include="Views\Departments\Create.cshtml" />
     <Content Include="Views\Departments\Delete.cshtml" />
     <Content Include="Views\Departments\Details.cshtml" />
@@ -326,6 +321,11 @@
     <Content Include="Views\Documents\Details.cshtml" />
     <Content Include="Views\Documents\Edit.cshtml" />
     <Content Include="Views\Documents\Index.cshtml" />
+    <Content Include="Views\Staffs\Create.cshtml" />
+    <Content Include="Views\Staffs\Delete.cshtml" />
+    <Content Include="Views\Staffs\Details.cshtml" />
+    <Content Include="Views\Staffs\Edit.cshtml" />
+    <Content Include="Views\Staffs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

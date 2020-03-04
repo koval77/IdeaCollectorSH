@@ -48,7 +48,7 @@ namespace IdeaCollectorSH.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StaffID,DepartmentID,FirstName,LastName,Email,Password,PhoneNumber")] Staff staff)
+        public ActionResult Create([Bind(Include = "StaffID,DepartmentID,FirstName,LastName,Email,Password,PhoneNumber,Address")] Staff staff)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace IdeaCollectorSH.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StaffID,DepartmentID,FirstName,LastName,Email,Password,PhoneNumber")] Staff staff)
+        public ActionResult Edit([Bind(Include = "StaffID,DepartmentID,FirstName,LastName,Email,Password,PhoneNumber,Address")] Staff staff)
         {
             if (ModelState.IsValid)
             {
