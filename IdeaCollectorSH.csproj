@@ -52,6 +52,7 @@
         </ObjectGroup>
       </Objects>
     </PublishDatabaseSettings>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
