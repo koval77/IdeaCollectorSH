@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using IdeaCollectorSH.Models;
+using System.Data.Entity;
 
 namespace IdeaCollectorSH.Controllers
 {
-    [Authorize]
+    
     public class HomeController : Controller
     {
+        Entities db = new Entities();
         public ActionResult Index()
         {
-            return View();
+            var ideas = db.Ideas.Include(i => i.Staff);
+            return View(ideas.ToList());
         }
 
         public ActionResult About()

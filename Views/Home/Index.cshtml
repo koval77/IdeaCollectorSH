@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<IdeaCollectorSH.Models.Idea>
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -13,30 +14,76 @@
 </div>
 
 <div class="container">
-    @Html.ActionLink("List of departments","Index","Departments")<br />
-    @Html.ActionLink("List of staffs","Index","Staffs")<br />
-     @Html.ActionLink("List of ideas","Index","Ideas")<br />
-     @Html.ActionLink("List of documents","Index","Documents")<br />
-    @Html.ActionLink("Moja akcja","Index","Moj")
+    @Html.ActionLink("List of departments", "Index", "Departments")<br />
+    @Html.ActionLink("List of staffs", "Index", "Staffs")<br />
+    @Html.ActionLink("List of ideas", "Index", "Ideas")<br />
+    @Html.ActionLink("List of documents", "Index", "Documents")<br />
+    @Html.ActionLink("Moja akcja", "Index", "Moj")
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubmitDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TDown)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpiryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ViewCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdeaTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmitDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TUp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TDown)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpiryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViewCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdeaDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Staff.FirstName)
+            </td>
+        </tr>
+    }
+
+</table>
