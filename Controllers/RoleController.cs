@@ -36,11 +36,29 @@ namespace IdeaCollectorSH.Controllers
         /// <param name="Role"></param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(IdentityRole Role)
         {
             context.Roles.Add(Role);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        /*    public ActionResult Create([Bind(Include="szef")] IdentityRole role)
+            {
+
+                if (ModelState.IsValid)
+                {
+                    context.Roles.Add(role);
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+            }*/
+ /*       public ActionResult Create(IdentityRole Role)
+        {
+            context.Roles.Add(Role);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }*/
     }
 }

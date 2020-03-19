@@ -80,7 +80,6 @@ namespace IdeaCollectorSH.Migrations
                         IdeaTitle = c.String(),
                         SubmitDate = c.DateTime(nullable: false),
                         Category = c.String(),
-                        Price = c.String(),
                         TUp = c.Int(),
                         TDown = c.Int(),
                         ExpiryDate = c.DateTime(),

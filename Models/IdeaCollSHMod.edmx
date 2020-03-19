@@ -99,7 +99,6 @@
           <Property Name="IdeaTitle" Type="nvarchar(max)" />
           <Property Name="SubmitDate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="Category" Type="nvarchar(max)" />
-          <Property Name="Price" Type="nvarchar(max)" />
           <Property Name="TUp" Type="int" />
           <Property Name="TDown" Type="int" />
           <Property Name="ExpiryDate" Type="datetime2" Precision="7" />

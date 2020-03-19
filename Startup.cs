@@ -75,6 +75,12 @@ namespace IdeaCollectorSH
 
             }
 
+            if (!roleManager.RoleExists("nierob")) {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "nierob";
+                roleManager.Create(role);
+            }
+
         }
     }
 }
