@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using IdeaCollectorSH.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace IdeaCollectorSH.Controllers
 {
@@ -73,6 +74,12 @@ namespace IdeaCollectorSH.Controllers
                 return View(model);
             }
 
+            ApplicationDbContext context = new ApplicationDbContext();
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+            if (role.Name == "Admin") { Console.WriteLine("aaaaaadmin!!"); }
+            else { Console.WriteLine("nie admin!!!!"); }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
