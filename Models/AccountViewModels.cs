@@ -64,6 +64,9 @@ namespace IdeaCollectorSH.Models
 
     public class RegisterViewModel
     {
+        //This property will be used to assign role to the user when a new user is registered in the applicatio
+        public string Name { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
