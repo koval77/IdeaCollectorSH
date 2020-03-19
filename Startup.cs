@@ -42,10 +42,10 @@ namespace IdeaCollectorSH
                 //Here we create a Admin super user who will maintain the website                 
 
                 var user = new ApplicationUser();
-                user.UserName = "shanu";
-                user.Email = "syedshanumcain@gmail.com";
+                user.UserName = "Wojtek";
+                user.Email = "wojtek78@yahoo.com";
 
-                string userPWD = "A@Z200711";
+                string userPWD = "warsaw77";
 
                 var chkUser = UserManager.Create(user, userPWD);
 

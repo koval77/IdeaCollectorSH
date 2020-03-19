@@ -385,7 +385,6 @@
           <Property Name="IdeaTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SubmitDate" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TUp" Type="Int32" />
           <Property Name="TDown" Type="Int32" />
           <Property Name="ExpiryDate" Type="DateTime" Precision="7" />
@@ -644,7 +643,6 @@
                 <ScalarProperty Name="IdeaTitle" ColumnName="IdeaTitle" />
                 <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="TUp" ColumnName="TUp" />
                 <ScalarProperty Name="TDown" ColumnName="TDown" />
                 <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />

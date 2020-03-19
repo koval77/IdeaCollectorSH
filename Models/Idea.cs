@@ -25,7 +25,6 @@ namespace IdeaCollectorSH.Models
         public string IdeaTitle { get; set; }
         public System.DateTime SubmitDate { get; set; }
         public string Category { get; set; }
-        public string Price { get; set; }
         public Nullable<int> TUp { get; set; }
         public Nullable<int> TDown { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }
