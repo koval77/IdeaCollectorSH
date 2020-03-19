@@ -262,6 +262,10 @@
     <Compile Include="Migrations\202003031437011_InitialCreate.Designer.cs">
       <DependentUpon>202003031437011_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003190359232_sf.cs" />
+    <Compile Include="Migrations\202003190359232_sf.Designer.cs">
+      <DependentUpon>202003190359232_sf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRole.cs">
@@ -449,6 +453,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003031437011_InitialCreate.resx">
       <DependentUpon>202003031437011_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003190359232_sf.resx">
+      <DependentUpon>202003190359232_sf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
