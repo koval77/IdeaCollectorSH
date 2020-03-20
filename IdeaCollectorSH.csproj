@@ -67,7 +67,7 @@
         <ObjectGroup Name="DefaultConnection-Deployment" Order="1">
           <Destination Path="MYSQLCONNSTR_localdb" />
           <Object Type="DbFullSql">
-            <PreSource Path="Data Source=%28LocalDb%29\MSSQLLocalDB%3bAttachDbFilename=|DataDirectory|\aspnet-IdeaCollectorSH-20200303014308.mdf%3bInitial Catalog=aspnet-IdeaCollectorSH-20200303014308%3bIntegrated Security=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <PreSource Path="Data Source=%28LocalDB%29\MSSQLLocalDB%3bAttachDbFilename=D:\Users\User\source\repos\IdeaCollectorSH\App_Data\aspnet-IdeaCollectorSH-20200303014308.mdf%3bIntegrated Security=True%3bConnect Timeout=30" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Release\AutoScripts\DefaultConnection-Deployment_SchemaAndData.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
@@ -294,6 +294,10 @@
     <Compile Include="Migrations\202003192027361_z2027.cs" />
     <Compile Include="Migrations\202003192027361_z2027.Designer.cs">
       <DependentUpon>202003192027361_z2027.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003201156102_z20032020.cs" />
+    <Compile Include="Migrations\202003201156102_z20032020.Designer.cs">
+      <DependentUpon>202003201156102_z20032020.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -949,6 +953,10 @@
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1055,6 +1063,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003192027361_z2027.resx">
       <DependentUpon>202003192027361_z2027.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003201156102_z20032020.resx">
+      <DependentUpon>202003201156102_z20032020.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

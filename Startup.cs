@@ -45,7 +45,7 @@ namespace IdeaCollectorSH
                 user.UserName = "Wojtek";
                 user.Email = "wojtek78@yahoo.com";
 
-                string userPWD = "warsaw77";
+                string userPWD = "W@rsaw77";
 
                 var chkUser = UserManager.Create(user, userPWD);
 
@@ -75,9 +75,9 @@ namespace IdeaCollectorSH
 
             }
 
-            if (!roleManager.RoleExists("nierob")) {
+            if (!roleManager.RoleExists("QAManager")) {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "nierob";
+                role.Name = "QAManager";
                 roleManager.Create(role);
             }
 
