@@ -80,7 +80,9 @@ namespace IdeaCollectorSH.Controllers
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-            if (role.Name == "Admin") { Console.WriteLine("aaaaaadmin!!"); }
+            role.Name = "Admin";
+            if (role.Name == "Admin") { Console.WriteLine("aaaaaadmin!!");
+                return RedirectToAction("Index", "AdminLte"); }
             else { Console.WriteLine("nie admin!!!!"); }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
