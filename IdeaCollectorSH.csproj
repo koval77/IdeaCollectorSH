@@ -294,12 +294,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IdeasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MojController.cs" />
+    <Compile Include="Controllers\QAManagerController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="ErrorHandler\AiHandleErrorAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -565,6 +567,8 @@
     <Content Include="web.config" />
     <Content Include="Views\Moj\Index.cshtml" />
     <Content Include="Views\Moj\Moj.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\QAManager\Index.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
