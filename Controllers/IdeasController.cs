@@ -48,7 +48,7 @@ namespace IdeaCollectorSH.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdeaID,IdeaTitle,SubmitDate,Category,Price,TUp,TDown,ExpiryDate,ViewCount,StaffID,IdeaDescription")] Idea idea)
+        public ActionResult Create([Bind(Include = "IdeaID,IdeaTitle,SubmitDate,Category,TUp,TDown,ExpiryDate,ViewCount,StaffID,IdeaDescription")] Idea idea)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace IdeaCollectorSH.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdeaID,IdeaTitle,SubmitDate,Category,Price,TUp,TDown,ExpiryDate,ViewCount,StaffID,IdeaDescription")] Idea idea)
+        public ActionResult Edit([Bind(Include = "IdeaID,IdeaTitle,SubmitDate,Category,TUp,TDown,ExpiryDate,ViewCount,StaffID,IdeaDescription")] Idea idea)
         {
             if (ModelState.IsValid)
             {

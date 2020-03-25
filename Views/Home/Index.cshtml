@@ -7,83 +7,90 @@
     <h1>Welcome to Ideas Collector</h1>
     <p class="lead">
         Ideas Collector is a sample application made using Agile, DevOps, GitHub that
-        demonstrates how to use Entity Framework 6 in an
+        demonstrates how to use Entity Framework 6 and Microsoft Identity in an
         ASP.NET MVC 5 web application.
     </p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
-<div class="container">
-    @Html.ActionLink("List of departments", "Index", "Departments")<br />
-    @Html.ActionLink("List of staffs", "Index", "Staffs")<br />
-    @Html.ActionLink("List of ideas", "Index", "Ideas")<br />
-    @Html.ActionLink("List of documents", "Index", "Documents")<br />
-    @Html.ActionLink("Moja akcja", "Index", "Moj")
+
+
+<div class="col-lg-6 col-md-6 col-sm-8 col-xs-10 col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-2">
+    <span class="" id="IDEAS">SHOW US YOUR IDEAS</span>
 </div>
+<div>
+    <form class="col-lg-6 col-md-6 col-sm-8 col-xs-10 col-lg-offset-3 col-md-offset-3 col-sm-offset-2 col-xs-offset-1">
+        <input type="text" list="FACULTY" placeholder="FACULTY" class="form-control panel-primary " />
+        <datalist id="FACULTY">
+            <option label="" value="Brilliant">
+            <option label="" value="Tech">
+            <option label="" value="CHINESE">
+            <option label="" value="ENGLISH">
+            <option label="" value="PE">
+        </datalist>
+    </form>
+</div>
+<div>
+    <form class="col-lg-6 col-md-6 col-sm-8 col-xs-10 col-lg-offset-3 col-md-offset-3 col-sm-offset-2 col-xs-offset-1" id="FORM">
+        <input type="text" list="mydata" placeholder="SORT BY" class="form-control panel-primary" />
+        <datalist id="mydata">
+            <option label="" value="time sequence">
+            <option label="" value="approval">
+            <option label="" value="reading quality">
+        </datalist>
+    </form>
+</div>
+@foreach (var item in Model)
+{
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
+        <div class="border">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h3 class="h">@Html.DisplayFor(modelItem => item.IdeaTitle)</h3>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.IdeaDescription)
+                        </p>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <img src="images/rhino.png" class="img-responsive">
+                                </div>
+                                <div class="col-xs-6">
+                                    <img src="images/rhino.png" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IdeaTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubmitDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TUp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TDown)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExpiryDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ViewCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdeaDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Staff.FirstName)
-        </th>
-        <th></th>
-    </tr>
+    </div>
+}
+<nav aria-label="Page navigation" class="text-center">
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdeaTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubmitDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TUp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TDown)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpiryDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ViewCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdeaDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Staff.FirstName)
-            </td>
-        </tr>
-    }
-
-</table>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="container">
+        @Html.ActionLink("Create new idea", "Create", "Ideas")<br />
+    </div>
+}
