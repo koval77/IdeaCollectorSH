@@ -49,10 +49,11 @@ namespace IdeaCollectorSH.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdeaID,IdeaTitle,SubmitDate,Category,TUp,TDown,ExpiryDate,ViewCount,StaffID,IdeaDescription")] Idea idea)
+        public ActionResult Create([Bind(Include = "IdeaID,IdeaTitle,SubmitDate,Category,TUp,TDown,ExpiryDate,ViewCount,StaffID,IdeaDescription,AuthorEmail")] Idea idea)
         {
             if (ModelState.IsValid)
             {
+                idea.AuthorEmail = User.Identity.Name;
                 db.Ideas.Add(idea);
                 db.SaveChanges();
                 return RedirectToAction("Index");

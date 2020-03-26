@@ -96,7 +96,7 @@
             <PropertyRef Name="IdeaID" />
           </Key>
           <Property Name="IdeaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdeaTitle" Type="nvarchar(max)" />
+          <Property Name="IdeaTitle" Type="nvarchar(max)" Nullable="false" />
           <Property Name="SubmitDate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="Category" Type="nvarchar(max)" />
           <Property Name="TUp" Type="int" />
@@ -105,6 +105,7 @@
           <Property Name="ViewCount" Type="int" />
           <Property Name="StaffID" Type="int" />
           <Property Name="IdeaDescription" Type="nvarchar(max)" />
+          <Property Name="AuthorEmail" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -381,7 +382,7 @@
             <PropertyRef Name="IdeaID" />
           </Key>
           <Property Name="IdeaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdeaTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdeaTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SubmitDate" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TUp" Type="Int32" />
@@ -393,6 +394,7 @@
           <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_ToTable" FromRole="Idea" ToRole="Comment" />
           <NavigationProperty Name="Documents" Relationship="Self.FK_Document_ToTable" FromRole="Idea" ToRole="Document" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Idea_ToTable" FromRole="Idea" ToRole="Staff" />
+          <Property Name="AuthorEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -638,6 +640,7 @@
           <EntitySetMapping Name="Ideas">
             <EntityTypeMapping TypeName="Model.Idea">
               <MappingFragment StoreEntitySet="Idea">
+                <ScalarProperty Name="AuthorEmail" ColumnName="AuthorEmail" />
                 <ScalarProperty Name="IdeaID" ColumnName="IdeaID" />
                 <ScalarProperty Name="IdeaTitle" ColumnName="IdeaTitle" />
                 <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
