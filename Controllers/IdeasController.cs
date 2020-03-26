@@ -13,6 +13,7 @@ namespace IdeaCollectorSH.Controllers
     public class IdeasController : Controller
     {
         private Entities db = new Entities();
+        private ApplicationDbContext appdbctx = new ApplicationDbContext();
 
         // GET: Ideas
         public ActionResult Index()
@@ -58,6 +59,7 @@ namespace IdeaCollectorSH.Controllers
             }
 
             ViewBag.StaffID = new SelectList(db.Staffs, "StaffID", "FirstName", idea.StaffID);
+            ViewBag.CurrentUser = User.ToString();
             return View(idea);
         }
 
