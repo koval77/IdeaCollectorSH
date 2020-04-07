@@ -452,6 +452,10 @@
     <Content Include="admin-lte\js\pages\dashboard.js" />
     <Content Include="admin-lte\js\pages\dashboard2.js" />
     <Content Include="App_Data\aspnet-IdeaCollectorSH-20200303014308.mdf" />
+    <Content Include="App_Data\aspnet-IdeaCollectorSH-20200303014308copy.mdf" />
+    <Content Include="App_Data\aspnet-IdeaCollectorSH-20200303014308copy_log.ldf">
+      <DependentUpon>aspnet-IdeaCollectorSH-20200303014308copy.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\aspnet-IdeaCollectorSH-20200303014308_log.ldf">
       <DependentUpon>aspnet-IdeaCollectorSH-20200303014308.mdf</DependentUpon>
     </Content>
