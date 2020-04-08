@@ -9,8 +9,7 @@ namespace IdeaCollectorSH.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "IdeaCollectorSH.Models.ApplicationDbContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(IdeaCollectorSH.Models.ApplicationDbContext context)
