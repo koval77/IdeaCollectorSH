@@ -1,0 +1,26 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "koval77StorageAccount_location": {
+      "type": "String"
+    },
+    "koval77StorageAccount": {
+      "type": "String"
+    },
+    "koval77StorageAccountType": {
+      "type": "String"
+    }
+  },
+  "resources": [
+    {
+      "location": "[parameters('koval77StorageAccount_location')]",
+      "name": "[parameters('koval77StorageAccount')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2015-06-15",
+      "properties": {
+        "accountType": "[parameters('koval77StorageAccountType')]"
+      }
+    }
+  ]
+}
