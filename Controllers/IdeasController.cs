@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using IdeaCollectorSH.Models;
+using System.Security.Authentication;
+using System.Net.Mail;
 
 namespace IdeaCollectorSH.Controllers
 {
@@ -51,11 +53,38 @@ namespace IdeaCollectorSH.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdeaID,IdeaTitle,SubmitDate,Category,TUp,TDown,ExpiryDate,ViewCount,StaffID,IdeaDescription,AuthorEmail")] Idea idea)
         {
+
             if (ModelState.IsValid)
             {
+                var senderEmail = new MailAddress("kwojtek621@gmail.com", User.Identity.Name);
+                var receiverEmail = new MailAddress("kwojtek621@gmail.com", "Receiver");
+                var password = "cipka6977";
+                var sub = "The idea was just submitted";
+                var body = "Hello. We want to inform to inform you that a new idea was submitted recently. The author of this idea is:"+User.Identity.Name+". The idea was submitted at: "+DateTime.Now;
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(senderEmail.Address, password)
+                };
+
+                using (var mess = new MailMessage(senderEmail, receiverEmail)
+                {
+                    Subject = sub,
+                    Body = body
+                })
+                {
+                    smtp.Send(mess);
+                }
+
                 idea.AuthorEmail = User.Identity.Name;
                 db.Ideas.Add(idea);
                 db.SaveChanges();
+                //client.Send(mail);
+
                 return RedirectToAction("Index");
             }
 
