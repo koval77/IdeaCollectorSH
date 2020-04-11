@@ -158,7 +158,70 @@ namespace IdeaCollectorSH.Controllers
             {
                 db.Dispose();
             }
+            //Console.WriteLine(base.RouteData.Values);
             base.Dispose(disposing);
+        }
+
+        public ActionResult ThumbUp(int? id)
+        {
+            Console.WriteLine("The id will be then: " + id);
+            TempData.Add("MyTempData", id);
+            return RedirectToAction("ThumbUpPost", id);
+        }
+
+        [HttpPost]
+        public ActionResult ThumbUpPost()
+        {
+            string IdeaId = Request.Form["UserId"];
+            int ideaIdnumber = Convert.ToInt32(IdeaId);
+
+
+            Idea idea = db.Ideas.Find(ideaIdnumber);
+            if (idea.TUp == null)
+            {
+                idea.TUp = 0;
+            }
+            else
+            {
+                idea.TUp += 1;
+            }
+            
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(idea).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(idea);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ThumbDownPost()
+        {
+            string IdeaId = Request.Form["UserId"];
+            int ideaIdnumber = Convert.ToInt32(IdeaId);
+
+
+            Idea idea = db.Ideas.Find(ideaIdnumber);
+            if (idea.TDown == null)
+            {
+                idea.TDown = 0;
+            }
+            else
+            {
+                idea.TDown += 1;
+            }
+
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(idea).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(idea);
         }
     }
 }

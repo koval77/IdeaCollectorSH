@@ -43,9 +43,9 @@
         </th>
         <th></th>
     </tr>
-
+    @{ int row = 0;}
 @foreach (var item in Model) {
-    <tr>
+    <tr>@{ row++;}
         <td>
             @Html.DisplayFor(modelItem => item.IdeaTitle)
         </td>
@@ -56,9 +56,23 @@
             @Html.DisplayFor(modelItem => item.Category)
         </td>
         <td>
+            @using (Html.BeginForm("ThumbUpPost", "Ideas"))
+            {
+                int position = 0;
+                position = position + 1;
+                @Html.AntiForgeryToken()
+                @Html.Hidden("UserId",row)
+                <button type="submit" class="glyphicon glyphicon-thumbs-up"></button>
+            }
             @Html.DisplayFor(modelItem => item.TUp)
         </td>
         <td>
+            @using (Html.BeginForm("ThumbDownPost", "Ideas"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("UserId", row)
+                <button type="submit" class="glyphicon glyphicon-thumbs-down"></button>
+            }
             @Html.DisplayFor(modelItem => item.TDown)
         </td>
         <td>
@@ -77,9 +91,9 @@
             @Html.DisplayFor(modelItem=>item.AuthorEmail)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdeaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdeaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdeaID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.IdeaID }) 
+            @Html.ActionLink("Details", "Details", new { id = item.IdeaID }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdeaID }) 
         </td>
     </tr>
 }

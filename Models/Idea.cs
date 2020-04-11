@@ -23,11 +23,13 @@ namespace IdeaCollectorSH.Models
         }
     
         public int IdeaID { get; set; }
-        [Display(Name="Title for your idea:")]
+        [Display(Name="Idea's title")]
         public string IdeaTitle { get; set; }
         public System.DateTime SubmitDate { get; set; }
         public string Category { get; set; }
+        [Display(Name="Likes")]
         public Nullable<int> TUp { get; set; }
+        [Display(Name="Dislikes")]
         public Nullable<int> TDown { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }
         public Nullable<int> ViewCount { get; set; }
