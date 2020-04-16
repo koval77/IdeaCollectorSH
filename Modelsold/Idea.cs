@@ -11,6 +11,7 @@ namespace IdeaCollectorSH.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Idea
     {
@@ -22,16 +23,20 @@ namespace IdeaCollectorSH.Models
         }
     
         public int IdeaID { get; set; }
+        [Display(Name="Idea's title")]
         public string IdeaTitle { get; set; }
         public System.DateTime SubmitDate { get; set; }
         public string Category { get; set; }
-        public string Price { get; set; }
+        [Display(Name="Likes")]
         public Nullable<int> TUp { get; set; }
+        [Display(Name="Dislikes")]
         public Nullable<int> TDown { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }
         public Nullable<int> ViewCount { get; set; }
         public Nullable<int> StaffID { get; set; }
         public string IdeaDescription { get; set; }
+        [Display(Name ="Author's E-mail:")]
+        public string AuthorEmail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }

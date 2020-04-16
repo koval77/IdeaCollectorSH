@@ -12,31 +12,28 @@ namespace IdeaCollectorSH.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Idea
+    public partial class Staff
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Idea()
+        public Staff()
         {
             this.Comments = new HashSet<Comment>();
-            this.Documents = new HashSet<Document>();
+            this.Ideas = new HashSet<Idea>();
         }
     
-        public int IdeaID { get; set; }
-        public string IdeaTitle { get; set; }
-        public System.DateTime SubmitDate { get; set; }
-        public string Category { get; set; }
-        public string Price { get; set; }
-        public Nullable<int> TUp { get; set; }
-        public Nullable<int> TDown { get; set; }
-        public Nullable<System.DateTime> ExpiryDate { get; set; }
-        public Nullable<int> ViewCount { get; set; }
-        public Nullable<int> StaffID { get; set; }
-        public string IdeaDescription { get; set; }
+        public int StaffID { get; set; }
+        public int DepartmentID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public Nullable<int> PhoneNumber { get; set; }
+        public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual Department Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Document> Documents { get; set; }
-        public virtual Staff Staff { get; set; }
+        public virtual ICollection<Idea> Ideas { get; set; }
     }
 }
