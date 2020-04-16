@@ -14,7 +14,7 @@ namespace IdeaCollectorSH.Controllers
 {
     public class IdeasController : Controller
     {
-        private Entities db = new Entities();
+        private NewModelSH db = new NewModelSH();
         private ApplicationDbContext appdbctx = new ApplicationDbContext();
 
         // GET: Ideas
@@ -79,7 +79,8 @@ namespace IdeaCollectorSH.Controllers
                 {
                     smtp.Send(mess);
                 }
-
+                idea.SubmitDate = DateTime.Now;
+                idea.ExpiryDate = DateTime.Now;
                 idea.AuthorEmail = User.Identity.Name;
                 db.Ideas.Add(idea);
                 db.SaveChanges();

@@ -12,7 +12,7 @@ namespace IdeaCollectorSH.Controllers
 {
     public class DocumentsController : Controller
     {
-        private Entities db = new Entities();
+        private NewModelSH db = new NewModelSH();
 
         // GET: Documents
         public ActionResult Index()

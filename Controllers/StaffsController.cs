@@ -12,7 +12,7 @@ namespace IdeaCollectorSH.Controllers
 {
     public class StaffsController : Controller
     {
-        private Entities db = new Entities();
+        private NewModelSH db = new NewModelSH();
 
         // GET: Staffs
         public ActionResult Index()

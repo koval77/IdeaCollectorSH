@@ -11,7 +11,7 @@ namespace IdeaCollectorSH.Controllers
     
     public class HomeController : Controller
     {
-        Entities db = new Entities();
+        NewModelSH db = new NewModelSH();
         public ActionResult Index()
         {
             var ideas = db.Ideas.Include(i => i.Staff);

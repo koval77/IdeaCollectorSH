@@ -380,67 +380,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003031437011_InitialCreate.cs" />
-    <Compile Include="Migrations\202003031437011_InitialCreate.Designer.cs">
-      <DependentUpon>202003031437011_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003190359232_sf.cs" />
-    <Compile Include="Migrations\202003190359232_sf.Designer.cs">
-      <DependentUpon>202003190359232_sf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003202328296_z2003.cs" />
-    <Compile Include="Migrations\202003202328296_z2003.Designer.cs">
-      <DependentUpon>202003202328296_z2003.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Comment.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Department.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Document.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Idea.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IdeaCollSHMod.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IdeaCollSHMod.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IdeaCollSHMod.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IdeaCollSHMod.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IdeaCollSHMod.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AspNetRole.cs" />
+    <Compile Include="Models\AspNetUser.cs" />
+    <Compile Include="Models\AspNetUserClaim.cs" />
+    <Compile Include="Models\AspNetUserLogin.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\Idea.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Staff.cs">
-      <DependentUpon>IdeaCollSHMod.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\NewModelSH.cs" />
+    <Compile Include="Models\Staff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -554,25 +506,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\IdeaCollSHMod.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>IdeaCollSHMod.edmx</DependentUpon>
-      <LastGenOutput>IdeaCollSHMod.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\IdeaCollSHMod.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>IdeaCollSHMod.edmx</DependentUpon>
-      <LastGenOutput>IdeaCollSHMod.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\IdeaCollSHMod.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>IdeaCollSHMod.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\IdeaCollSHMod.edmx.diagram">
-      <DependentUpon>IdeaCollSHMod.edmx</DependentUpon>
-    </Content>
     <Content Include="libman.json" />
     <Content Include="Controllers\Graph1.dgml" />
     <Content Include="ApplicationInsights.config" />
@@ -679,15 +614,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003031437011_InitialCreate.resx">
-      <DependentUpon>202003031437011_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003190359232_sf.resx">
-      <DependentUpon>202003190359232_sf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003202328296_z2003.resx">
-      <DependentUpon>202003202328296_z2003.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
