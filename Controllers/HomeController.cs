@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using IdeaCollectorSH.Models;
 using System.Data.Entity;
+using PagedList;
 
 namespace IdeaCollectorSH.Controllers
 {
@@ -14,6 +15,7 @@ namespace IdeaCollectorSH.Controllers
         NewModelSH db = new NewModelSH();
         public ActionResult Index()
         {
+            
             var ideas = db.Ideas.Include(i => i.Staff);
             return View(ideas.ToList());
         }
