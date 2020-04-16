@@ -16,6 +16,8 @@ namespace IdeaCollectorSH.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        NewModelSH db = new NewModelSH();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -156,6 +158,24 @@ namespace IdeaCollectorSH.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            string fname = Request["Fname"];
+            string lname = Request["Lname"];
+            string phone = Request["Phone"];
+            //Int64 phone = Int64.Parse(sphone);
+            string address = Request["Address"];
+            string sdepartment = Request["DepName"];
+            int department = int.Parse(sdepartment);
+            Staff newStaff = new Staff();
+            newStaff.Address = address;
+            newStaff.DepartmentID = Convert.ToInt16(department);
+            newStaff.LastName = lname;
+            newStaff.FirstName = fname;
+            newStaff.PhoneNumber = phone;
+            newStaff.Password = "passwordhere";
+            newStaff.Email = model.Email.ToString();
+            db.Staffs.Add(newStaff);
+            db.SaveChanges();
+            
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };

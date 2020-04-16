@@ -32,13 +32,13 @@ namespace IdeaCollectorSH.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(15)]
         public string Password { get; set; }
 
-        public int? PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(50)]
         public string Address { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
