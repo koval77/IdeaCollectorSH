@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using IdeaCollectorSH.Models;
 using System.Security.Authentication;
 using System.Net.Mail;
+using PagedList;
 
 namespace IdeaCollectorSH.Controllers
 {
@@ -18,10 +19,64 @@ namespace IdeaCollectorSH.Controllers
         private ApplicationDbContext appdbctx = new ApplicationDbContext();
 
         // GET: Ideas
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var ideas = db.Ideas.Include(i => i.Staff);
-            return View(ideas.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.LikesSortParm = sortOrder == "Likes" ? "like_asc" : "like_desc";
+            ViewBag.DislikesSortParm = sortOrder == "Dislikes" ? "disl_asc" : "disl_desc";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var ideas = from s in db.Ideas.Include(i=>i.Staff)
+                        select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                ideas = ideas.Where(s => s.IdeaTitle.Contains(searchString)
+                                       || s.IdeaDescription.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    ideas = ideas.OrderByDescending(s => s.IdeaTitle);
+                    break;
+                case "Date":
+                    ideas = ideas.OrderBy(s => s.SubmitDate);
+                    break;
+                case "date_desc":
+                    ideas = ideas.OrderByDescending(s => s.SubmitDate);
+                    break;
+                case "like_asc":
+                    ideas = ideas.OrderBy(s => s.TUp);
+                    break;
+                case "like_desc":
+                    ideas = ideas.OrderByDescending(s => s.TUp);
+                    break;
+                case "disl_asc":
+                    ideas = ideas.OrderBy(s => s.TDown);
+                    break;
+                case "disl_desc":
+                    ideas = ideas.OrderByDescending(s => s.TDown);
+                    break;
+                default:
+                    ideas = ideas.OrderBy(s => s.SubmitDate);
+                    break;
+            }
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(ideas.ToPagedList(pageNumber, pageSize));
+            //ideas = db.Ideas.Include(i => i.Staff);
         }
 
         // GET: Ideas/Details/5

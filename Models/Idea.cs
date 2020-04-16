@@ -18,18 +18,21 @@ namespace IdeaCollectorSH.Models
         public int IdeaID { get; set; }
 
         [Required]
+        [Display(Name="Title")]
         public string IdeaTitle { get; set; }
 
         public DateTime SubmitDate { get; set; }
 
         public string Category { get; set; }
 
+        [Display(Name="Likes")]
         public int? TUp { get; set; }
-
+        [Display(Name="Dislikes")]
         public int? TDown { get; set; }
 
         public DateTime? ExpiryDate { get; set; }
 
+        [Display(Name="Views")]
         public int? ViewCount { get; set; }
 
         public int? StaffID { get; set; }
