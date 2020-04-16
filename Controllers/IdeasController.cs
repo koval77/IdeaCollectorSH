@@ -80,7 +80,7 @@ namespace IdeaCollectorSH.Controllers
                     smtp.Send(mess);
                 }
                 idea.SubmitDate = DateTime.Now;
-                idea.ExpiryDate = DateTime.Now;
+                idea.ExpiryDate = DateTime.Now.AddYears(1);
                 idea.AuthorEmail = User.Identity.Name;
                 db.Ideas.Add(idea);
                 db.SaveChanges();
