@@ -19,8 +19,9 @@ namespace IdeaCollectorSH.Controllers
         private ApplicationDbContext appdbctx = new ApplicationDbContext();
 
         // GET: Ideas
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.LikesSortParm = sortOrder == "Likes" ? "like_asc" : "like_desc";
@@ -226,20 +227,25 @@ namespace IdeaCollectorSH.Controllers
         }
 
         [HttpPost]
-        public ActionResult ThumbUpPost()
+        [ValidateAntiForgeryToken]
+        public ActionResult ThumbUpPost(int? id)
         {
-            string IdeaId = Request.Form["UserId"];
-            int ideaIdnumber = Convert.ToInt32(IdeaId);
-
-
-            Idea idea = db.Ideas.Find(ideaIdnumber);
+            //string IdeaId = Request.Form["IdeaId"];
+            //int ideaIdnumber = Convert.ToInt32(IdeaId);
+            if (Session["likeAdded"] != null)
+            {
+                return RedirectToAction("Index");
+            }
+            Session["likeAdded"] = !(bool)true;
+            Idea idea = db.Ideas.Find(id);
             if (idea.TUp == null)
             {
                 idea.TUp = 0;
             }
-            else
+            else if ((bool)Session["likeAdded"]==false)
             {
                 idea.TUp += 1;
+                Session["likeAdded"] = (bool)true;
             }
             
 
@@ -254,20 +260,25 @@ namespace IdeaCollectorSH.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ThumbDownPost()
+        public ActionResult ThumbDownPost(int? id)
         {
-            string IdeaId = Request.Form["UserId"];
-            int ideaIdnumber = Convert.ToInt32(IdeaId);
+            //string IdeaId = Request.Form["IdeaId"];
+            //int ideaIdnumber = Convert.ToInt32(IdeaId);
+            if (Session["dislikeAdded"] != null)
+            {
+                return RedirectToAction("Index");
+            }
+            Session["dislikeAdded"] = !(bool)true;
 
-
-            Idea idea = db.Ideas.Find(ideaIdnumber);
+            Idea idea = db.Ideas.Find(id);
             if (idea.TDown == null)
             {
                 idea.TDown = 0;
             }
-            else
+            else if((bool)Session["dislikeAdded"] == false)
             {
                 idea.TDown += 1;
+                Session["dislikeAdded"] = (bool)true;
             }
 
 
