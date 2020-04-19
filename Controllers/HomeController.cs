@@ -15,8 +15,8 @@ namespace IdeaCollectorSH.Controllers
         NewModelSH db = new NewModelSH();
         public ActionResult Index()
         {
-            
-            var ideas = db.Ideas.Include(i => i.Staff);
+
+            IQueryable<Idea> ideas = db.Ideas.Include(i => i.Staff);
             return View(ideas.ToList());
         }
 

@@ -45,7 +45,7 @@
             @Html.DisplayNameFor(model => model.First().IdeaDescription)
         </th>
         <th>
-            First name
+            @Html.DisplayNameFor(model=>model.First().Staff.FirstName)
         </th>
         <th>
             Author's email
@@ -107,6 +107,8 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.IdeaID })
                 @Html.ActionLink("Details", "Details", new { id = item.IdeaID })
                 @Html.ActionLink("Delete", "Delete", new { id = item.IdeaID })
+                <br />
+                @Html.ActionLink("Add documents", "Create", "Documents", new { id=item.IdeaID},null)
             </td>
         </tr>
     }

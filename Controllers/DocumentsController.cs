@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -37,9 +38,10 @@ namespace IdeaCollectorSH.Controllers
         }
 
         // GET: Documents/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.IdeaID = new SelectList(db.Ideas, "IdeaID", "IdeaTitle");
+            ViewBag.IdeaID = new SelectList(db.Ideas, id, "IdeaTitle");
+            ViewBag.Iid = id;
             return View();
         }
 
@@ -48,17 +50,65 @@ namespace IdeaCollectorSH.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DocumentID,IdeaID,DocumentName")] Document document)
+        public ActionResult Upload([Bind(Include = "DocumentID,IdeaID,DocumentName,PostedFile")] Document document)
         {
-            if (ModelState.IsValid)
+            if (document.PostedFile != null && document.PostedFile.ContentLength > 0)
+                try
+                {  //Server.MapPath takes the absolte path of folder 'Uploads'
+                    string path = Path.Combine(Server.MapPath("~/Uploads"),
+                                               Path.GetFileName(document.PostedFile.FileName));
+                    //Save file using Path+fileName take from above string
+                    document.PostedFile.SaveAs(path);
+                    ViewBag.Message = "File uploaded successfully";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
             {
+                ViewBag.Message = "You have not specified a file.";
+            }
+            document.DocumentName = document.PostedFile.FileName;
+
+            var errors = ModelState
+    .Where(x => x.Value.Errors.Count > 0)
+    .Select(x => new { x.Key, x.Value.Errors })
+    .ToArray();
+
+            var errors2 = ModelState.Values.SelectMany(v => v.Errors);
+            if (ModelState.IsValid)
+            {     
                 db.Documents.Add(document);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.IdeaID = new SelectList(db.Ideas, "IdeaID", "IdeaTitle", document.IdeaID);
-            return View(document);
+            return RedirectToAction("Index","Home",document);
+        }
+
+        [HttpPost]
+        public ActionResult StaryUpload(HttpPostedFileBase PostedFile)
+        {
+            if (PostedFile != null && PostedFile.ContentLength > 0)
+                try
+                {  //Server.MapPath takes the absolte path of folder 'Uploads'
+                    string path = Path.Combine(Server.MapPath("~/Uploads"),
+                                               Path.GetFileName(PostedFile.FileName));
+                    //Save file using Path+fileName take from above string
+                    PostedFile.SaveAs(path);
+                    ViewBag.Message = "File uploaded successfully";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+            return RedirectToAction("Create","Documents");
         }
 
         // GET: Documents/Edit/5

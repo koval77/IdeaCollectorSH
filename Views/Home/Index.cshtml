@@ -30,6 +30,11 @@
         </datalist>
     </form>
 </div>
+@Html.DropDownList("Departments",new List<SelectListItem> { 
+new SelectListItem{Text="Greenwich",Value="1",Selected=true},
+new SelectListItem{Text="Avery Hill",Value="2"},
+new SelectListItem{Text="Medway",Value="3"}
+},"Select Department")
 
 
 <div>
