@@ -17,16 +17,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Ideas Collector", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Ideas Collector", "Index", "Home", new { area = "" }, new { @class = "tomymenu" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><img src="~/Content/Images/logomin.jpg" class="img-circle" alt="Greenwich logo"/></li>
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
-                    <li>@Html.ActionLink("QA Manager", "Index", "QAManager")</li>
+                    <li><img src="~/Content/Images/logomin.jpg" class="myimgdesign" alt="Greenwich logo"/></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home",null,new { @class="tomymenu"})</li>
+                    <li>@Html.ActionLink("About", "About", "Home",null,new { @class="tomymenu"})</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home",null,new { @class="tomymenu"})</li>
+                    <li>@Html.ActionLink("Admin", "Index", "Admin",null,new { @class="tomymenu"})</li>
+                    <li>@Html.ActionLink("QA Manager", "Index", "QAManager",null,new { @class="tomymenu"})</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

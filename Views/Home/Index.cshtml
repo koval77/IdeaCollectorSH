@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<IdeaCollectorSH.Models.Idea>
+<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Welcome to Ideas Collector</h1>
+<div class="jumbotron tlodosh">
+    <h1 class="shadow1">Welcome to Ideas Collector</h1>
     <p class="lead">
         Ideas Collector is a sample application made using Agile, DevOps, GitHub that
         demonstrates how to use Entity Framework 6 and Microsoft Identity in an
@@ -15,7 +16,6 @@
 <a href="#" class="fa-thumbs-o-up"></a>
 <a href="#" class="fa-thumbs-up"></a>
 <a href="#" class="fa fa-thumbs-down"></a>
-
 
 <div class="col-lg-6 col-md-6 col-sm-8 col-xs-10 col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-2">
     <span class="" id="IDEAS">SHOW US YOUR IDEAS</span>
@@ -30,46 +30,47 @@
         </datalist>
     </form>
 </div>
-@Html.DropDownList("Departments",new List<SelectListItem> { 
+@Html.DropDownList("Departments", new List<SelectListItem> {
 new SelectListItem{Text="Greenwich",Value="1",Selected=true},
 new SelectListItem{Text="Avery Hill",Value="2"},
 new SelectListItem{Text="Medway",Value="3"}
-},"Select Department")
+}, "Select Department")
 
 
 <div>
     <form class="col-lg-6 col-md-6 col-sm-8 col-xs-10 col-lg-offset-3 col-md-offset-3 col-sm-offset-2 col-xs-offset-1" id="FORM">
         <input type="text" list="mydata" placeholder="SORT BY" class="form-control panel-primary" />
         <datalist id="mydata">
-            <option label="" value="time sequence">
-            <option label="" value="approval">
-            <option label="" value="reading quality">
+            <option label="" value="Title">
+            <option label="" value="Submit date">
+            <option label="" value="Likes">
         </datalist>
     </form>
 </div>
 
 @foreach (var item in Model)
 {<div>
-    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
-        <div class="well">
-            <div class="container-fluid border">
-                <div class="border row">
-                    <div class="shadow border col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <h3 class="h">@Html.DisplayFor(modelItem => item.IdeaTitle)</h3>
-                        <p>
-                            @Html.DisplayFor(modelItem => item.IdeaDescription)
-                        </p>
-                        <br />
-                        <p><span>Author:</span>@Html.DisplayFor(modelItem => item.AuthorEmail)</p>
-                        <p><span class="glyphicon glyphicon-thumbs-up">@Html.DisplayFor(modelItem => item.TUp)</span> Likes</p>
-                        <p><span class="glyphicon glyphicon-thumbs-down">@Html.DisplayFor(modelItem => item.TDown)</span> Dislikes</p>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <img src="images/rhino.png" class="img-responsive">
-                                </div>
-                                <div class="col-xs-6">
-                                    <img src="images/rhino.png" class="img-responsive">
+        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
+            <div class="well">
+                <div class="container-fluid border">
+                    <div class="border row">
+                        <div class="shadow border col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h3 class="h">@Html.DisplayFor(modelItem => item.IdeaTitle)</h3>
+                            <p>
+                                @Html.DisplayFor(modelItem => item.IdeaDescription)
+                            </p>
+                            <br />
+                            <p><span>Author:</span>@Html.DisplayFor(modelItem => item.AuthorEmail)</p>
+                            <p><span class="glyphicon glyphicon-thumbs-up">@Html.DisplayFor(modelItem => item.TUp)</span> Likes</p>
+                            <p><span class="glyphicon glyphicon-thumbs-down">@Html.DisplayFor(modelItem => item.TDown)</span> Dislikes</p>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <img src="images/rhino.png" class="img-responsive">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="#">Comments <span class="badge">??</span></a><br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +78,6 @@ new SelectListItem{Text="Medway",Value="3"}
                 </div>
             </div>
         </div>
-    </div>
     </div>
 }
 <nav aria-label="Page navigation" class="text-center">
@@ -99,6 +99,7 @@ new SelectListItem{Text="Medway",Value="3"}
         </li>
     </ul>
 </nav>
+
 
 @if (User.Identity.IsAuthenticated)
 {

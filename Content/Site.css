@@ -28,3 +28,39 @@ tr::before{
     counter-increment:section;
     
 }
+
+.tlodosh {
+    background-color: #ece5da;
+    text-align: center;
+}
+
+.shadow1 {
+    font-family: "Paytone One";
+    display: block;
+    margin: 11px 0 17px 0;
+    font-size: 80px;
+    line-height: 80px;
+    color: #f1ebe5;
+    text-shadow: 0 13.36px 8.896px #c4b59d,0 -2px 1px #fff;
+    letter-spacing: -4px;
+}
+
+.tomymenu {
+    color: ghostwhite;
+    text-shadow: 1px 1px 2px #fff, 0 0 2px #c4b59d, 1px 1px #ffd800;
+    font-size: 1.5em;
+    padding-right:15px;
+    margin-top:15px;
+}
+
+#mojtest {
+    color:red;
+    font-size:x-large;
+}
+
+.myimgdesign {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
