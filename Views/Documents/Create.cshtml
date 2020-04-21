@@ -5,8 +5,10 @@
 }
 
 <h2>Add documents to idea</h2>
-@ViewBag.Iid;
-
+<br />
+<h3>Uploading document to:</h3>
+@ViewBag.Iid
+<br />
 @using (Html.BeginForm("Upload",
                         "Documents",
                         FormMethod.Post,

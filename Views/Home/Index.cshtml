@@ -51,28 +51,32 @@ new SelectListItem{Text="Medway",Value="3"}
 @foreach (var item in Model)
 {<div>
         <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
-            <div class="well">
+            <div class="well card">
                 <div class="container-fluid border">
-                    <div class="border row">
-                        <div class="shadow border col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="shadow border col-lg-9 col-md-9 col-sm-9 col-xs-9">
                             <h3 class="h">@Html.DisplayFor(modelItem => item.IdeaTitle)</h3>
                             <p>
+                            <span>
                                 @Html.DisplayFor(modelItem => item.IdeaDescription)
+                                </span>
                             </p>
                             <br />
-                            <p><span>Author:</span>@Html.DisplayFor(modelItem => item.AuthorEmail)</p>
-                            <p><span class="glyphicon glyphicon-thumbs-up">@Html.DisplayFor(modelItem => item.TUp)</span> Likes</p>
-                            <p><span class="glyphicon glyphicon-thumbs-down">@Html.DisplayFor(modelItem => item.TDown)</span> Dislikes</p>
+                            <p><span class="glyphicon glyphicon-thumbs-up"></span><span class="badge">@Html.DisplayFor(modelItem => item.TUp)</span> Likes</p>
+                            <p><span class="glyphicon glyphicon-thumbs-down"></span><span class="badge">@Html.DisplayFor(modelItem => item.TDown)</span> Dislikes</p>
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <img src="images/rhino.png" class="img-responsive">
                                     </div>
                                     <div class="col-xs-6">
                                         <a href="#">Comments <span class="badge">??</span></a><br>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-9 col-xs-9">
+                            <img src="~/Content/Images/maleavatar1.png" class="img-responsive media-right imgsmaller" alt="avatar">
+                            <h4>Author:</h4><p>@Html.DisplayFor(modelItem => item.AuthorEmail)</p>
                         </div>
                     </div>
                 </div>

@@ -41,7 +41,8 @@ namespace IdeaCollectorSH.Controllers
         public ActionResult Create(int? id)
         {
             ViewBag.IdeaID = new SelectList(db.Ideas, id, "IdeaTitle");
-            ViewBag.Iid = id;
+            Idea thid = db.Ideas.Find(id);
+            ViewBag.Iid = (string)thid.IdeaTitle;
             return View();
         }
 
