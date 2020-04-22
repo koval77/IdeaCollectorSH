@@ -1,0 +1,51 @@
+﻿@model IEnumerable<IdeaCollectorSH.Models.Comment>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Idea.IdeaTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubmitDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Idea.IdeaTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmitDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CommentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CommentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CommentId })
+        </td>
+    </tr>
+}
+
+</table>

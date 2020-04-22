@@ -67,9 +67,10 @@ new SelectListItem{Text="Medway",Value="3"}
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-xs-6">
+                                        <a href="#">Comments <span class="badge">@Html.DisplayFor(modelItem=>item.Comments.Count)</span></a><br>
                                     </div>
                                     <div class="col-xs-6">
-                                        <a href="#">Comments <span class="badge">??</span></a><br>
+                                        @Html.ActionLink("Add comment", "Create", "Comments", new { id=item.IdeaID},null)
                                     </div>
                                 </div>
                             </div>
